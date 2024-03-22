@@ -1,0 +1,72 @@
+{
+  "name": "ng-beautify",
+  "displayName": "Ng-Beautify",
+  "description": "A simple Angular template file formatter",
+  "publisher": "netwin",
+  "author": "NetWin",
+  "version": "0.0.2",
+  "icon": "./images/icon.png",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "keywords": [
+    "angular",
+    "beautify",
+    "html"
+  ],
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configurationDefaults": {
+      "[html]": {
+        "editor.defaultFormatter": "netwin.ng-beautify"
+      }
+    },
+    "commands": [
+      {
+        "command": "ng-beautify.format-file",
+        "title": "Beautify Angular template",
+        "enablement": "editorLangId == html"
+      }
+    ]
+  },
+  "scripts": {
+    "pack": "vsce pack",
+    "publish": "vsce publish",
+    "publish:major": "vsce publish major",
+    "publish:minor": "vsce publish minor",
+    "publish:patch": "vsce publish patch",
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/js-beautify": "^1.14.3",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^18.19.26",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "@vscode/vsce": "^2.24.0",
+    "eslint": "^8.57.0",
+    "js-beautify": "^1.15.1",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.3",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
