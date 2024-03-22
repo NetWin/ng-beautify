@@ -36,6 +36,11 @@ export function formatHtmlDocument(text: string): string {
   // This probably needs to be improved to handle more complex cases but should be good enough for now
   formattedText = formattedText.replace(/@(.*?)\s*\{/g, '@$1 {');
 
+  // Add whitespaces between the closing "}" and the "@" statement in Angular bindings
+  // e.g. "}@else{" -> "} @else {"
+  // This probably needs to be improved to handle more complex cases but should be good enough for now
+  formattedText = formattedText.replace(/\}[ |\t]*@(.*?)[ |\t]*\{/g, '} @$1 {');
+
   // Add whitespaces between the "{{" and the "}}" in Angular bindings
   // e.g. "{{value}}" -> "{{ value }}"1
   // This probably needs to be improved to handle more complex cases but should be good enough for now
