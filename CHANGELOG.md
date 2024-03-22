@@ -1,3 +1,7 @@
+## 0.0.3 - 2024-03-23
+
+- Empty release, no new changes
+
 ## 0.0.2 - 2024-03-23
 
 - Fixed an issue where `}@else {` wasn't converted to `} @else {` correctly
