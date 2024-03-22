@@ -44,7 +44,7 @@ export function formatHtmlDocument(text: string): string {
   // Add whitespaces between the "{{" and the "}}" in Angular bindings
   // e.g. "{{value}}" -> "{{ value }}"1
   // This probably needs to be improved to handle more complex cases but should be good enough for now
-  formattedText = formattedText.replace(/\{\{\s*(.*?)\s*\}\}/g, '{{ $1 }}');
+  formattedText = formattedText.replace(/\{\{[ |\t]*(.*?)[ |\t]*\}\}/g, '{{ $1 }}');
 
   return formattedText;
 }
