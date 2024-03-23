@@ -1,3 +1,19 @@
+## 0.0.4 - 2024-03-24
+
+- Remove leading and trailing spaces within parameters / conditions of control flow statements.
+  Example:
+  ```html
+  @if (    condition    ) {
+    <div>Content</div>
+  }
+  ```
+  will be converted to
+  ```html
+  @if (condition) {
+    <div>Content</div>
+  }
+  ```
+
 ## 0.0.3 - 2024-03-23
 
 - Empty release, no new changes
