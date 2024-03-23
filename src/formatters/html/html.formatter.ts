@@ -29,7 +29,7 @@ export function formatHtmlDocument(text: string): string {
   // Add whitespaces between the "@<if|else|defer|...>" and the "(" in Angular bindings
   // e.g. "@if(condition){" -> "@if (condition) {"
   // This probably needs to be improved to handle more complex cases but should be good enough for now
-  formattedText = formattedText.replace(/@(.*?)\s*\((.*?)\)\s*\{/g, '@$1 ($2) \{');
+  formattedText = formattedText.replace(/@(.*?)\s*\(\s*(.*?)\s*\)\s*\{/g, '@$1 ($2) \{');
 
   // Add whitespaces between control flow statements without parentheses and the "{" in Angular bindings
   // e.g. "@empty{" -> "@empty {"
